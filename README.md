@@ -1,63 +1,93 @@
 # Umesh_21BCE7320
 
-Chess-Like Game 
+---
 
-Overview  
+# Turn-Based Chess-like Game
 
-This project is a chess-like game played on a 5x5 grid between two players. Each player controls a team of five characters with specific movement rules: 
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Gameplay](#gameplay)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technical Details](#technical-details)
 
-Pawn: Moves one block in any direction (Left, Right, Forward, Backward).
+## Introduction
+This project is a web-based turn-based chess-like game where two players compete on a 5x5 grid. Each player controls a set of characters with unique movement capabilities. The objective is to eliminate all of the opponent's characters.
 
-Hero1: Moves two blocks straight in any direction and kills any opponent's character in its path.
+## Features
+- **Real-time gameplay** using WebSockets.
+- **Three unique character types** with different movement and combat rules:
+  - **Pawn**: Moves one block in any direction.
+  - **Hero1**: Moves two blocks straight in any direction and can eliminate opponents in its path.
+  - **Hero2**: Moves two blocks diagonally in any direction and can eliminate opponents in its path.
+- **Responsive web client** that displays the game board, character positions, and valid moves.
+- **Turn-based gameplay** with alternating player turns.
+- **Game over condition** when all characters of one player are eliminated.
 
-Hero2: Moves two blocks diagonally in any direction and kills any opponent's character in its path.
+## Gameplay
 
-The game is implemented with a WebSocket server for real-time communication and a web-based client for user interaction.
+### Characters and Movement
+- **Pawn**:
+  - Moves one block in any direction (Left, Right, Forward, or Backward).
+  - Move commands: `L` (Left), `R` (Right), `F` (Forward), `B` (Backward)
+- **Hero1**:
+  - Moves two blocks straight in any direction.
+  - Kills any opponent's character in its path.
+  - Move commands: `L` (Left), `R` (Right), `F` (Forward), `B` (Backward)
+- **Hero2**:
+  - Moves two blocks diagonally in any direction.
+  - Kills any opponent's character in its path.
+  - Move commands: `FL` (Forward-Left), `FR` (Forward-Right), `BL` (Backward-Left), `BR` (Backward-Right)
 
-Setup Instructions:
+### Move Command Format
+- For Pawn and Hero1: `<character_name>:<move>` (e.g., `P1:L`, `H1:F`)
+- For Hero2: `<character_name>:<move>` (e.g., `H2:FL`, `H2:BR`)
 
-Server:
+### Winning the Game
+- The game ends when one player eliminates all of their opponent's characters.
 
-1.Install Dependencies:
+## Installation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/turn-based-game.git
+   cd turn-based-game
+   ```
 
-Make sure you have Node.js installed. Navigate to the server directory and run:
+2. **Install dependencies for the server:**
+   ```bash
+   npm install
+   ```
 
-npm install ws
+3. **Start the WebSocket server:**
+   ```bash
+   node server.js
+   ```
 
-2.Run the Server:
+4. **Open the web client:**
+   - Open `index.html` in a web browser.
 
-Start the server by running:
+## Usage
 
-node server.js
+1. **Start the server:**
+   ```bash
+   node server.js
+   ```
 
-The server will listen on port 8080.
+2. **Launch the game:**
+   - Open `index.html` in two different web browsers or browser tabs.
 
-Client:
+3. **Initialize the game:**
+   - Enter your player ID (`A` or `B`) and configure your characters.
 
-1.Prepare the Client Files:
+4. **Play the game:**
+   - Select a character by clicking on it, then use the buttons to move it.
 
-Ensure you have the index.html file ready in your project directory.
+5. **Winning the game:**
+   - The game ends when one player eliminates all of the opponent's characters.
 
-2.Open the Client
-
-Open index.html in your web browser. You can simply double-click the file to open it in your default browser or use a local server if you prefer.
-
-Usage:
-
-1.Start the Server:
-
-Run the server using the command mentioned in the setup instructions.
-
-2.Open the Client:
-
-Open index.html in two separate browser windows or tabs. Enter A or B as your player ID when prompted.
-
-3.Deploy Characters:
-
-When prompted in the browser, enter your characters in a comma-separated format (e.g., P1,H1,P2,P3,H2).
-
-4.Play the Game:
-
-Select a character by clicking on it in the grid.
-Choose a move by clicking one of the move buttons.
-The game alternates turns between players and updates the grid and move history in real-time.
+## Technical Details
+- **Server:** Node.js with WebSocket for real-time communication.
+- **Client:** HTML, CSS, and JavaScript for the web interface.
+- **Game Logic:** Includes character movement, attack mechanics, and win condition checks.
+- **Communication:** WebSocket events for game initialization, player moves, game state updates, and invalid move notifications.
