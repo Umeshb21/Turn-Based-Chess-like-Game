@@ -50,8 +50,8 @@ This project is a web-based turn-based chess-like game where two players compete
 ## Installation
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/turn-based-game.git
-   cd turn-based-game
+   git clone https://github.com/Umeshb21/Umesh_21BCE7320.git
+   cd Umesh_21BCE7320
    ```
 
 2. **Install dependencies for the server:**
