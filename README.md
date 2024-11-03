@@ -1,7 +1,3 @@
-# Umesh_21BCE7320
-
----
-
 # Turn-Based Chess-like Game
 
 ## Table of Contents
